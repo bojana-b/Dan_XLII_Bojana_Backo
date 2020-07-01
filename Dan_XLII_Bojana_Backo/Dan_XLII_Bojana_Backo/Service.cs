@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Dan_XLII_Bojana_Backo
 {
     public class Service
     {
+        public static string fileLocations = @"..\..\Locations.txt";
         // Method that reads all employees from database
         public List<tblEmployee> GetAllEmployees()
         {
@@ -73,6 +73,29 @@ namespace Dan_XLII_Bojana_Backo
             catch (Exception ex)
             {
                 System.Diagnostics.Debug.WriteLine("Exception" + ex.Message.ToString());
+            }
+        }
+
+        // Method for get the locations from Locations.txt file
+        public List<string> GetLocations()
+        {
+            try
+            {
+                List<string> LocationList = new List<string>();
+                using (StreamReader sr = File.OpenText(fileLocations))
+                {
+                    string line;
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        LocationList.Add(line);
+                    }
+                }
+                return LocationList;
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("Exception" + ex.Message.ToString());
+                return null;
             }
         }
     }

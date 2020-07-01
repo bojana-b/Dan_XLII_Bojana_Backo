@@ -19,6 +19,16 @@
           <Property Name="Location" Type="nvarchar" MaxLength="15" />
           <Property Name="Manager" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'Employee.dbo.vwManagers' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="vwManagers">
+          <Property Name="Manager" Type="nvarchar" MaxLength="50" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'Employee.dbo.vwSectors' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="vwSectors">
+          <Property Name="Sector" Type="nvarchar" MaxLength="15" />
+        </EntityType>-->
         <EntityContainer Name="EmployeeModelStoreContainer">
           <EntitySet Name="tblEmployee" EntityType="Self.tblEmployee" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
